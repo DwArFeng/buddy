@@ -1,8 +1,10 @@
 package com.dwarfeng.buddy.impl.service.operation;
 
+import com.dwarfeng.buddy.impl.handler.FtpPathResolver;
 import com.dwarfeng.buddy.stack.bean.entity.AvatarInfo;
 import com.dwarfeng.buddy.stack.cache.AvatarInfoCache;
 import com.dwarfeng.buddy.stack.dao.AvatarInfoDao;
+import com.dwarfeng.ftp.stack.handler.FtpHandler;
 import com.dwarfeng.subgrade.sdk.exception.ServiceExceptionCodes;
 import com.dwarfeng.subgrade.sdk.service.custom.operation.BatchCrudOperation;
 import com.dwarfeng.subgrade.stack.bean.key.StringIdKey;
@@ -19,14 +21,23 @@ public class AvatarInfoCrudOperation implements BatchCrudOperation<StringIdKey, 
 
     private final AvatarInfoCache avatarInfoCache;
 
+    private final FtpHandler ftpHandler;
+
+    private final FtpPathResolver ftpPathResolver;
+
     @Value("${com.dwarfeng.buddy.cache.timeout.entity.avatar_info}")
     private long avatarInfoTimeout;
 
     public AvatarInfoCrudOperation(
-            AvatarInfoDao avatarInfoDao, AvatarInfoCache avatarInfoCache
+            AvatarInfoDao avatarInfoDao,
+            AvatarInfoCache avatarInfoCache,
+            FtpHandler ftpHandler,
+            FtpPathResolver ftpPathResolver
     ) {
         this.avatarInfoDao = avatarInfoDao;
         this.avatarInfoCache = avatarInfoCache;
+        this.ftpHandler = ftpHandler;
+        this.ftpPathResolver = ftpPathResolver;
     }
 
     @Override
@@ -62,9 +73,14 @@ public class AvatarInfoCrudOperation implements BatchCrudOperation<StringIdKey, 
 
     @Override
     public void delete(StringIdKey key) throws Exception {
-        // TODO 实现头像文件的级联删除动作。
+        if (ftpHandler.existsFile(
+                ftpPathResolver.resolvePath(FtpPathResolver.RELATIVE_PATH_AVATAR), key.getStringId()
+        )) {
+            ftpHandler.deleteFile(
+                    ftpPathResolver.resolvePath(FtpPathResolver.RELATIVE_PATH_AVATAR), key.getStringId()
+            );
+        }
 
-        // 删除头像信息自身。
         avatarInfoCache.delete(key);
         avatarInfoDao.delete(key);
     }

@@ -1,10 +1,8 @@
 package com.dwarfeng.buddy.sdk.bean;
 
-import com.dwarfeng.buddy.sdk.bean.dto.WebInputProfileCompositeLookupInfo;
-import com.dwarfeng.buddy.sdk.bean.dto.WebInputUserCompositeLookupInfo;
+import com.dwarfeng.buddy.sdk.bean.dto.*;
 import com.dwarfeng.buddy.sdk.bean.entity.*;
-import com.dwarfeng.buddy.stack.bean.dto.ProfileCompositeLookupInfo;
-import com.dwarfeng.buddy.stack.bean.dto.UserCompositeLookupInfo;
+import com.dwarfeng.buddy.stack.bean.dto.*;
 import com.dwarfeng.buddy.stack.bean.entity.AvatarInfo;
 import com.dwarfeng.buddy.stack.bean.entity.Notification;
 import com.dwarfeng.buddy.stack.bean.entity.Profile;
@@ -118,6 +116,73 @@ public interface BeanMapper {
     UserCompositeLookupInfo userCompositeLookupInfoFromWebInput(
             WebInputUserCompositeLookupInfo webInputUserCompositeLookupInfo
     );
+
+    WebInputNotificationCreateInfo notificationCreateInfoToWebInput(NotificationCreateInfo notificationCreateInfo);
+
+    @InheritInverseConfiguration
+    NotificationCreateInfo notificationCreateInfoFromWebInput(
+            WebInputNotificationCreateInfo webInputNotificationCreateInfo
+    );
+
+    WebInputNotificationReadInfo notificationReadInfoToWebInput(NotificationReadInfo notificationReadInfo);
+
+    @InheritInverseConfiguration
+    NotificationReadInfo notificationReadInfoFromWebInput(WebInputNotificationReadInfo webInputNotificationReadInfo);
+
+    WebInputNotificationReadAllForUserInfo notificationReadAllForUserInfoToWebInput(
+            NotificationReadAllForUserInfo notificationReadAllForUserInfo
+    );
+
+    @InheritInverseConfiguration
+    NotificationReadAllForUserInfo notificationReadAllForUserInfoFromWebInput(
+            WebInputNotificationReadAllForUserInfo webInputNotificationReadAllForUserInfo
+    );
+
+    WebInputNotificationClearForUserInfo notificationClearForUserInfoToWebInput(
+            NotificationClearForUserInfo notificationClearForUserInfo
+    );
+
+    @InheritInverseConfiguration
+    NotificationClearForUserInfo notificationClearForUserInfoFromWebInput(
+            WebInputNotificationClearForUserInfo webInputNotificationClearForUserInfo
+    );
+
+    WebInputProfileUpdateInfo profileUpdateInfoToWebInput(ProfileUpdateInfo profileUpdateInfo);
+
+    @InheritInverseConfiguration
+    ProfileUpdateInfo profileUpdateInfoFromWebInput(WebInputProfileUpdateInfo webInputProfileUpdateInfo);
+
+    WebInputAvatarFileDownloadInfo avatarFileDownloadInfoToWebInput(AvatarFileDownloadInfo avatarFileDownloadInfo);
+
+    @InheritInverseConfiguration
+    AvatarFileDownloadInfo avatarFileDownloadInfoFromWebInput(
+            WebInputAvatarFileDownloadInfo webInputAvatarFileDownloadInfo
+    );
+
+    WebInputAvatarUploadInfo avatarUploadInfoToWebInput(AvatarUploadInfo avatarUploadInfo);
+
+    @InheritInverseConfiguration
+    AvatarUploadInfo avatarUploadInfoFromWebInput(WebInputAvatarUploadInfo webInputAvatarUploadInfo);
+
+    WebInputAvatarRemoveInfo avatarRemoveInfoToWebInput(AvatarRemoveInfo avatarRemoveInfo);
+
+    @InheritInverseConfiguration
+    AvatarRemoveInfo avatarRemoveInfoFromWebInput(WebInputAvatarRemoveInfo webInputAvatarRemoveInfo);
+
+    FastJsonAvatarFile avatarFileToFastJson(AvatarFile avatarFile);
+
+    @InheritInverseConfiguration
+    AvatarFile avatarFileFromFastJson(FastJsonAvatarFile fastJsonAvatarFile);
+
+    JSFixedFastJsonAvatarFile avatarFileToJSFixedFastJson(AvatarFile avatarFile);
+
+    @InheritInverseConfiguration
+    AvatarFile avatarFileFromJSFixedFastJson(JSFixedFastJsonAvatarFile jSFixedFastJsonAvatarFile);
+
+    WebInputAvatarFile avatarFileToWebInput(AvatarFile avatarFile);
+
+    @InheritInverseConfiguration
+    AvatarFile avatarFileFromWebInput(WebInputAvatarFile webInputAvatarFile);
 
     // endregion
 }

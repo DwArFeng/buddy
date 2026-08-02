@@ -4,6 +4,11 @@
 
 ### 功能构建
 
+- 新增实体操作服务。
+  - com.dwarfeng.buddy.stack.service.AvatarOperateService。
+  - com.dwarfeng.buddy.stack.service.NotificationOperateService。
+  - com.dwarfeng.buddy.stack.service.ProfileOperateService。
+
 - 建立实体以及维护服务，并通过单元测试。
   - com.dwarfeng.buddy.stack.bean.entity.AvatarInfo。
   - com.dwarfeng.buddy.stack.bean.entity.Notification。

@@ -1,0 +1,47 @@
+package com.dwarfeng.buddy.sdk.util;
+
+import com.dwarfeng.buddy.stack.exception.AvatarNotExistsException;
+import com.dwarfeng.buddy.stack.exception.NotificationNotExistsException;
+import com.dwarfeng.buddy.stack.exception.ProfileNotExistsException;
+import com.dwarfeng.buddy.stack.exception.UserNotExistsException;
+import com.dwarfeng.subgrade.stack.exception.ServiceException;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
+
+/**
+ * 异常的帮助工具类。
+ *
+ * @author DwArFeng
+ * @since 1.0.0
+ */
+public final class ServiceExceptionHelper {
+
+    /**
+     * 向指定的映射中添加 buddy 默认的目标映射。
+     *
+     * <p>
+     * 该方法可以在配置类中快速的搭建目标映射。
+     *
+     * @param map 指定的映射，允许为 <code>null</code>。
+     * @return 添加了默认目标的映射。
+     */
+    public static Map<Class<? extends Exception>, ServiceException.Code> putDefaultDestination(
+            Map<Class<? extends Exception>, ServiceException.Code> map
+    ) {
+        if (Objects.isNull(map)) {
+            map = new HashMap<>();
+        }
+
+        map.put(ProfileNotExistsException.class, ServiceExceptionCodes.PROFILE_NOT_EXISTS);
+        map.put(NotificationNotExistsException.class, ServiceExceptionCodes.NOTIFICATION_NOT_EXISTS);
+        map.put(UserNotExistsException.class, ServiceExceptionCodes.USER_NOT_EXISTS);
+        map.put(AvatarNotExistsException.class, ServiceExceptionCodes.AVATAR_NOT_EXISTS);
+        return map;
+    }
+
+    private ServiceExceptionHelper() {
+        throw new IllegalStateException("禁止外部实例化");
+    }
+}
