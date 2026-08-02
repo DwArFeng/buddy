@@ -4,6 +4,11 @@
 
 ### 功能构建
 
+- 实现运维指令。
+  - com.dwarfeng.buddy.impl.service.telqos.AvatarCommand。
+  - com.dwarfeng.buddy.impl.service.telqos.NotificationCommand。
+  - com.dwarfeng.buddy.impl.service.telqos.ProfileCommand。
+
 - 完成 `buddy-distribute` 模块，打包测试通过。
 
 - 完成 `buddy-node-all-he` 模块，启动测试通过。

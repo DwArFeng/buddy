@@ -24,6 +24,7 @@
             <telqos:command-impl package-scan="com.dwarfeng.springtelqos.api.integration.system"/>
             <telqos:command-impl package-scan="com.dwarfeng.ftp.api.integration.springtelqos"/>
             <telqos:command-impl package-scan="com.dwarfeng.datamark.api.integration.springtelqos"/>
+            <telqos:command-impl package-scan="com.dwarfeng.buddy.impl.service.telqos"/>
         </telqos:command>
     </telqos:config>
     <telqos:handler/>
