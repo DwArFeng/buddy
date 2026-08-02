@@ -501,6 +501,11 @@
                 <artifactId>buddy-node-all-he</artifactId>
                 <version>1.0.0.a-SNAPSHOT</version>
             </dependency>
+            <dependency>
+                <groupId>com.dwarfeng</groupId>
+                <artifactId>buddy-distribute</artifactId>
+                <version>1.0.0.a-SNAPSHOT</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -546,5 +551,6 @@
         <module>buddy-sdk</module>
         <module>buddy-impl</module>
         <module>buddy-node</module>
+        <module>buddy-distribute</module>
     </modules>
 </project>
