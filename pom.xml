@@ -491,6 +491,16 @@
                 <artifactId>buddy-impl</artifactId>
                 <version>1.0.0.a-SNAPSHOT</version>
             </dependency>
+            <dependency>
+                <groupId>com.dwarfeng</groupId>
+                <artifactId>buddy-node</artifactId>
+                <version>1.0.0.a-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.dwarfeng</groupId>
+                <artifactId>buddy-node-all-he</artifactId>
+                <version>1.0.0.a-SNAPSHOT</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -535,5 +545,6 @@
         <module>buddy-stack</module>
         <module>buddy-sdk</module>
         <module>buddy-impl</module>
+        <module>buddy-node</module>
     </modules>
 </project>

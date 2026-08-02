@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ftp="http://dwarfeng.com/schema/dwarfeng-ftp"
+        xmlns="http://www.springframework.org/schema/beans"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://dwarfeng.com/schema/dwarfeng-ftp
+        http://dwarfeng.com/schema/dwarfeng-ftp/dwarfeng-ftp.xsd"
+>
+
+    <ftp:config
+            host="${com.dwarfeng.buddy.ftp.host}"
+            username="${com.dwarfeng.buddy.ftp.username}"
+            password="${com.dwarfeng.buddy.ftp.password}"
+            port="${com.dwarfeng.buddy.ftp.port}"
+            server-charset="${com.dwarfeng.buddy.ftp.server_charset}"
+            connect-timeout="${com.dwarfeng.buddy.ftp.connect_timeout}"
+            noop-interval="${com.dwarfeng.buddy.ftp.noop_interval}"
+            buffer-size="${com.dwarfeng.buddy.ftp.buffer_size}"
+            temporary-file-directory-path="${com.dwarfeng.buddy.ftp.temporary_file_directory_path}"
+            temporary-file-prefix="${com.dwarfeng.buddy.ftp.temporary_file_prefix}"
+            temporary-file-suffix="${com.dwarfeng.buddy.ftp.temporary_file_suffix}"
+            file-copy-memory-buffer-size="${com.dwarfeng.buddy.ftp.file_copy_memory_buffer_size}"
+            data-connection-mode="${com.dwarfeng.buddy.ftp.data_connection_mode}"
+            data-timeout="${com.dwarfeng.buddy.ftp.data_timeout}"
+            active-remote-data-connection-mode-server-host=
+                    "${com.dwarfeng.buddy.ftp.active_remote_data_connection_mode_server_host}"
+            active-remote-data-connection-mode-server-port=
+                    "${com.dwarfeng.buddy.ftp.active_remote_data_connection_mode_server_port}"
+    />
+    <ftp:handler/>
+    <ftp:qos/>
+</beans>

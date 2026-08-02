@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:dubbo="http://dubbo.apache.org/schema/dubbo"
+        xmlns="http://www.springframework.org/schema/beans"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://dubbo.apache.org/schema/dubbo
+        http://dubbo.apache.org/schema/dubbo/dubbo.xsd"
+>
+
+    <!-- region 基础配置 -->
+
+    <dubbo:application name="buddy-node-all-he">
+        <dubbo:parameter key="qos.enable" value="false"/>
+    </dubbo:application>
+
+    <!-- Zookeeper 注册中心。 -->
+    <dubbo:registry
+            address="${com.dwarfeng.buddy.dubbo.registry.zookeeper.address}"
+            timeout="${com.dwarfeng.buddy.dubbo.registry.zookeeper.timeout}"
+    />
+
+    <!-- Dubbo 协议。 -->
+    <dubbo:protocol
+            name="dubbo"
+            port="${com.dwarfeng.buddy.dubbo.protocol.dubbo.port}"
+            host="${com.dwarfeng.buddy.dubbo.protocol.dubbo.host}"
+            dispatcher="message"
+            threadpool="fixed"
+            threads="100"
+    />
+
+    <!-- Hessian 协议。 -->
+    <dubbo:protocol name="hessian" port="${com.dwarfeng.buddy.dubbo.protocol.hessian.port}" server="jetty"/>
+
+    <!-- 默认使用 dubbo 协议。 -->
+    <dubbo:provider protocol="dubbo"/>
+
+    <!-- endregion -->
+
+    <!-- region 服务配置 -->
+
+    <!-- region buddy -->
+
+    <dubbo:service
+            interface="com.dwarfeng.buddy.stack.service.UserMaintainService"
+            ref="userMaintainServiceImpl"
+            group="${com.dwarfeng.buddy.dubbo.provider.group}"
+    />
+    <dubbo:service
+            interface="com.dwarfeng.buddy.stack.service.AvatarInfoMaintainService"
+            ref="avatarInfoMaintainServiceImpl"
+            group="${com.dwarfeng.buddy.dubbo.provider.group}"
+    />
+    <dubbo:service
+            interface="com.dwarfeng.buddy.stack.service.AvatarOperateService"
+            ref="avatarOperateServiceImpl"
+            protocol="hessian"
+            group="${com.dwarfeng.buddy.dubbo.provider.group}"
+    />
+    <dubbo:service
+            interface="com.dwarfeng.buddy.stack.service.NotificationMaintainService"
+            ref="notificationMaintainServiceImpl"
+            group="${com.dwarfeng.buddy.dubbo.provider.group}"
+    />
+    <dubbo:service
+            interface="com.dwarfeng.buddy.stack.service.NotificationOperateService"
+            ref="notificationOperateServiceImpl"
+            group="${com.dwarfeng.buddy.dubbo.provider.group}"
+    />
+    <dubbo:service
+            interface="com.dwarfeng.buddy.stack.service.ProfileMaintainService"
+            ref="profileMaintainServiceImpl"
+            group="${com.dwarfeng.buddy.dubbo.provider.group}"
+    />
+    <dubbo:service
+            interface="com.dwarfeng.buddy.stack.service.ProfileOperateService"
+            ref="profileOperateServiceImpl"
+            group="${com.dwarfeng.buddy.dubbo.provider.group}"
+    />
+
+    <!-- endregion -->
+
+    <!-- endregion -->
+
+    <!-- region 引用配置 -->
+
+    <!-- region snowflake -->
+
+    <dubbo:reference
+            id="snowflakeGenerateService"
+            interface="com.dwarfeng.sfds.stack.service.GenerateService"
+            check="false"
+            group="${com.dwarfeng.buddy.dubbo.consumer.snowflake.group}"
+    />
+
+    <!-- endregion -->
+
+    <!-- endregion -->
+</beans>

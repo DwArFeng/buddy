@@ -4,6 +4,8 @@
 
 ### 功能构建
 
+- 完成 `buddy-node-all-he` 模块，启动测试通过。
+
 - 新增实体操作服务。
   - com.dwarfeng.buddy.stack.service.AvatarOperateService。
   - com.dwarfeng.buddy.stack.service.NotificationOperateService。
