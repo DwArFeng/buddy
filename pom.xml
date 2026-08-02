@@ -10,7 +10,7 @@
 
     <groupId>com.dwarfeng</groupId>
     <artifactId>buddy</artifactId>
-    <version>1.0.0.a-SNAPSHOT</version>
+    <version>1.0.0.a</version>
 
     <packaging>pom</packaging>
 
@@ -479,32 +479,32 @@
             <dependency>
                 <groupId>com.dwarfeng</groupId>
                 <artifactId>buddy-stack</artifactId>
-                <version>1.0.0.a-SNAPSHOT</version>
+                <version>1.0.0.a</version>
             </dependency>
             <dependency>
                 <groupId>com.dwarfeng</groupId>
                 <artifactId>buddy-sdk</artifactId>
-                <version>1.0.0.a-SNAPSHOT</version>
+                <version>1.0.0.a</version>
             </dependency>
             <dependency>
                 <groupId>com.dwarfeng</groupId>
                 <artifactId>buddy-impl</artifactId>
-                <version>1.0.0.a-SNAPSHOT</version>
+                <version>1.0.0.a</version>
             </dependency>
             <dependency>
                 <groupId>com.dwarfeng</groupId>
                 <artifactId>buddy-node</artifactId>
-                <version>1.0.0.a-SNAPSHOT</version>
+                <version>1.0.0.a</version>
             </dependency>
             <dependency>
                 <groupId>com.dwarfeng</groupId>
                 <artifactId>buddy-node-all-he</artifactId>
-                <version>1.0.0.a-SNAPSHOT</version>
+                <version>1.0.0.a</version>
             </dependency>
             <dependency>
                 <groupId>com.dwarfeng</groupId>
                 <artifactId>buddy-distribute</artifactId>
-                <version>1.0.0.a-SNAPSHOT</version>
+                <version>1.0.0.a</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
